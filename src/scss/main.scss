@@ -269,6 +269,7 @@ h1 {
                             margin-right: 0;
                         }
                         .search__box {
+                            cursor: unset;
                             height: 40px;
                             width: 336px;
                             outline: none;
@@ -508,6 +509,7 @@ h1 {
                                 }
                                 .input-txt {
                                     @extend .inputTxtFocus;
+                                    cursor: unset;
                                     margin-right: 24px;
                                     @media (max-width: $lt) {
                                         margin: 0 0 10px 0;
