@@ -1,13 +1,8 @@
 @import "../../node_modules/normalize-scss/sass/normalize";
-//@import '../../node_modules/swiper/swiper-bundle.css';
-
 
 @font-face {
-    //font-family: "Poppins-Regular";
     font-family: 'Work Sans';
     src: url('/dist/fonts/WorkSans-Regular.ttf')  format('truetype');
-    //font-style: normal;
-    //font-weight: 400;
 }
 
 $lt-grey: #E5E5E5; //bg
@@ -26,12 +21,12 @@ $link-blue: #6665DD;
 $font: 'Work Sans';
 $lg: 1200px;
 $md: 1000px;
-$sm: 600px;
+$sm: 810px;
+$lt: 450px;
 
 :root {
     // переписанные стили для ползунка range
     --slider-bg: #DBDCDE;
-    //--slider-connect-bg: $green;
     --slider-height: 3px;
     --slider-handle-width: 19px;
     --slider-handle-height: 19px;
@@ -60,10 +55,6 @@ body {
     font-family: $font;
     margin: 0 auto;
     padding: 0;
-    //max-width: 1440px;
-    //@media (max-width: $sm) {
-    //    background: $white;
-    //}
 }
 a {
     color: $link-blue;
@@ -209,7 +200,6 @@ h1 {
         list-style: none;
         @extend .text--md14;
         color: $md-black;
-        //overscroll-behavior: contain;
         scrollbar-width: thin;
         scrollbar-color: #E6E5E5 white;
         scroll-behavior: smooth;
@@ -242,8 +232,10 @@ h1 {
             max-width: unset;
             width: 100%;
         }
+        @media (max-width: $md) {
+            padding-top: 0px;
+        }
         header {
-            //width: 1224px;
             width: 100%;
             .header-inner {
                 .header-inner_top {
@@ -263,9 +255,19 @@ h1 {
                     border-radius: 0px 0px 8px 8px;
                     display: flex;
                     align-items: center;
+                    @media (max-width: $sm) {
+                        padding: 10px;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        align-items: flex-start;
+                        flex-direction: column;
+                    }
                     .search {
                         position: relative;
                         margin-right: 32px ;
+                        @media (max-width: $sm) {
+                            margin-right: 0;
+                        }
                         .search__box {
                             height: 40px;
                             width: 336px;
@@ -293,6 +295,13 @@ h1 {
                         .select__head {
                             width: 79.3%;
                             border: none;
+                            white-space: nowrap;
+                            @media (max-width: $sm) {
+                                padding-left: 0;
+                            }
+                            @media (max-width: $sm) {
+                                padding-left: 0;
+                            }
                             &::after {
                                 right: -5px;
                             }
@@ -310,14 +319,18 @@ h1 {
                 margin: 2%;
                 width: 96%;
             }
-            @media (max-width: $md) {
-                //flex-direction: column-reverse;
-                //margin: 0;
-                //width: 100%;
+            @media (max-width: $sm) {
+                flex-direction: column-reverse;
+                margin: 0;
+                padding: 0;
+                width: 100%;
             }
             .content__inner_left {
                 @media (max-width: $lg) {
                     width: 75%;
+                }
+                @media (max-width: $sm) {
+                    width: 100%;
                 }
                 .donation {
                     width: 936px;
@@ -325,6 +338,11 @@ h1 {
                     @include container;
                     @media (max-width: $lg) {
                         width: 100%;
+                    }
+                    @media (max-width: $sm) {
+                        width: 100%;
+                        margin: 0;
+                        border: 0;
                     }
                     .donation-inner {
                         .donation-inner-top {
@@ -334,6 +352,9 @@ h1 {
                             border: 1px solid #DBDCDE;
                             border-bottom: none;
                             border-radius: 8px 8px 0px 0px;
+                            @media (max-width: $sm) {
+                                padding: 16px 10px;
+                            }
                             .line {
                                 @include flex-bw;
                                 line-height: 28px;
@@ -364,6 +385,9 @@ h1 {
                             border-radius: 0px 0px 8px 8px;
                             padding: 16px 0px 20px 31px;
                             display: flex;
+                            @media (max-width: $sm) {
+                                padding: 16px 10px;
+                            }
                             .text-h {
                                 color: $lt-black;
                                 line-height: 21px;
@@ -396,6 +420,9 @@ h1 {
                     @media (max-width: $lg) {
                         width: 100%;
                     }
+                    @media (max-width: $sm) {
+                        border: 0;
+                    }
                     .transactions-head {
                         border-bottom: 1px solid #DBDCDE;
                         padding: 32px 0 0 22px;
@@ -418,6 +445,9 @@ h1 {
                                 justify-content: center;
                                 cursor: pointer;
                                 transition: opacity 1ms;
+                                @media (max-width: $lt) {
+                                    font-size: 12px;
+                                }
                                 &.active {
                                     color: $green;
                                     border: 1px solid #DBDCDE;
@@ -432,20 +462,32 @@ h1 {
                     }
                     .transactions-inner{
                         padding: 40px 0 44px 0;
+                        width: 100%;
                         .line {
                             display: flex;
                             align-items: center;
                             @media (max-width: $md) {
                                 padding-left: 10px!important;
                             }
+                            @media (max-width: $lt) {
+                                flex-wrap: wrap;
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
                             &:not(:last-child) {
                                 margin-bottom: 25px;
-                                //margin-bottom: 24px;
+                                @media (max-width: $lt) {
+                                    margin-bottom: 15px;
+                                }
                             }
                             .label {
                                 margin-right: 16px;
                                 @extend .text--md16;
                                 color: $md-black;
+                                @media (max-width: $lt) {
+                                    margin: 0 0 5px 0;
+                                    font-size: 16px;
+                                }
                             }
                             &.line__des {
                                 padding-left: 92px;
@@ -467,6 +509,9 @@ h1 {
                                 .input-txt {
                                     @extend .inputTxtFocus;
                                     margin-right: 24px;
+                                    @media (max-width: $lt) {
+                                        margin: 0 0 10px 0;
+                                    }
                                 }
                             }
                             &.line_amount {
@@ -586,7 +631,15 @@ h1 {
                     .transactions-bottom {
                         background: $beige;
                         padding: 24px 32px;
+                        @media (max-width: $sm) {
+                            padding: 5% 2%;
+                            display: flex;
+                            justify-content: center;
+                        }
                         .btn {
+                            @media (max-width: $sm) {
+                                display: block;
+                            }
                             &:first-child {
                                 margin-right: 16px;
                             }
@@ -599,6 +652,9 @@ h1 {
                 @media (max-width: $lg) {
                     min-height: unset;
                     width: 22%;
+                }
+                @media (max-width: $sm) {
+                    width: 100%;
                 }
                 .menu-right {
                     width: 264px;
@@ -617,8 +673,12 @@ h1 {
                         display: flex;
                         background: $white;
                         cursor: pointer;
-                        @media (max-width: $md) {
+                        white-space: nowrap;
+                        @media (max-width: $lg) {
                             padding: 5px;
+                        }
+                        @media (max-width: $sm) {
+                            padding: 5px 10px;
                         }
                         &:hover {
                             opacity: 0.8;
@@ -628,7 +688,7 @@ h1 {
                         }
                         .icon {
                             padding-right: 10px;
-                            @media (max-width: $md) {
+                            @media (max-width: $lg) {
                                 display: none;
                             }
                             @media (max-width: $sm) {
