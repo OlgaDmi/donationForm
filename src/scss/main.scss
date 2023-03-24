@@ -431,7 +431,7 @@ h1 {
                         }
                         .tabs {
                             display: flex;
-                            overflow-x: scroll;
+                            overflow-x: auto;
                             min-width: 400px;
                             .tabs-item {
                                 padding: 16px 18px 14px 18px;
