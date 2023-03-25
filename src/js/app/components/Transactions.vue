@@ -5,90 +5,6 @@
 				<div class="tabs-item" :class="{active: item.isActive}" v-for="item in tabs" @click="changeTab(item)">{{item.text}}</div>
 			</div>
 		</div>
-<!--		<div class="swiper tab-content-slider">-->
-<!--			<div class="swiper-wrapper transactions-inner">-->
-<!--				<div class="swiper-slide" >-->
-<!--					<div class="line line__des">-->
-<!--						<div class="label">Designation</div>-->
-<!--						<div class="select">-->
-<!--							<input class="select__input" type="hidden" name="">-->
-<!--							<div class="select__head" @click="changeSelectStatus('checkout')">{{ currCheckout }}</div>-->
-<!--							<ul class="select__list" v-show="checkoutStatus">-->
-<!--								<li class="select__item" v-for="item in checkoutList" @click="changeCheckoutItem(item.text)">{{ item.text }}</li>-->
-<!--							</ul>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="line line__goal">-->
-<!--						<div class="label">Goal</div>-->
-<!--						<input type="text" class="input-txt">-->
-<!--						<div class="select">-->
-<!--							<input class="select__input" type="hidden" name="">-->
-<!--							<div class="select__head" @click="changeSelectStatus('usd')">{{ currUsd }}</div>-->
-<!--							<ul class="select__list" v-show="checkoutUsd">-->
-<!--								<li class="select__item" v-for="item in usdList" @click="changeUsdItem(item.text)">{{ item.text }}</li>-->
-<!--							</ul>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="line line_amount">-->
-<!--						<div class="label">Default Amount</div>-->
-<!--						<div class="line_amount_right">-->
-<!--							<div class="radio-box">-->
-<!--								<div class="radio-box__item">-->
-<!--									<input id="radio-1" type="radio" name="radio" value="1">-->
-<!--									<label for="radio-1">Match Checkout Setting</label>-->
-<!--								</div>-->
-<!--								<div class="radio-box__item">-->
-<!--									<input id="radio-2" type="radio" name="radio" value="2" checked>-->
-<!--									<label for="radio-2">Customize</label>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--							<div class="checkbox-box">-->
-<!--								<input type="checkbox" class="custom-checkbox" id="currency" name="currency">-->
-<!--								<label for="currency">Allow donor to change default currency</label>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="line line_border-size">-->
-<!--						<div class="label">Border size</div>-->
-<!--						<div class="rangeslider">-->
-<!--							<div class="rangeslider-box">-->
-<!--								<Slider :tooltips="false" :min="0" :max="4" v-model="rangeValueBorderSize" />-->
-<!--							</div>-->
-<!--							<div class="rangeslider__num" v-text="rangeValueBorderSize+'px'"></div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="line line_border-radius">-->
-<!--						<div class="label">Border radius</div>-->
-<!--						<div class="rangeslider">-->
-<!--							<div class="rangeslider-box">-->
-<!--								<Slider :min="0" :max="20" :tooltips="false" v-model="rangeValueBorderRadius" />-->
-<!--							</div>-->
-<!--							<div class="rangeslider__num" v-text="rangeValueBorderRadius+'px'"></div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="swiper-slide" >-->
-<!--					<div class="line line__des">-->
-<!--						content Appearance-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="swiper-slide" >-->
-<!--					<div class="line line__des">-->
-<!--						content Custom Fields-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="swiper-slide" >-->
-<!--					<div class="line line__des">-->
-<!--						content Questions-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="swiper-slide" >-->
-<!--					<div class="line line__des">-->
-<!--						content URL Control-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
 		<div class="transactions-inner">
 			<div v-if="currentTab == 'Behavior'">
 				<div class="line line__des">
@@ -181,8 +97,7 @@
 <style src="@vueform/slider/themes/default.css"></style>
 <script>
 import Slider from '@vueform/slider'
-// import {Swiper, Navigation, Pagination, Scrollbar, Controller, EffectFade, Autoplay} from 'swiper'
-// Swiper.use([Navigation, Pagination, Scrollbar, Controller, EffectFade, Autoplay]);
+
 export default {
 	name: 'Transactions',
 	data: () => ({
@@ -274,52 +189,9 @@ export default {
 				this.currentTab = tab.text;
 			},
 	},
-	computed: {
-		// total: function () {
-		// 	return this.rangeValue
-		// },
-	},
 	components: {
 			Slider,
-			// Swiper,
-			// Navigation,
-			// Pagination,
-			// Scrollbar,
-			// Controller,
-			// EffectFade,
-			// Autoplay
 	},
 }
 
-// const tabContentSlider = new Swiper('.tab-content-slider', {
-// 	speed: 500,
-// 	slidesPerView: 1,
-// 	// stretch: 5,
-// 	// observer: true,
-// 	spaceBetween: 30,
-// 	// navigation: {
-// 	// 	nextEl: '.article-slider-next',
-// 	// 	prevEl: '.article-slider-prev',
-// 	// },
-// 	on: {
-// 		// slideChange: function (swiper) {
-// 		// 	if (swiper.activeIndex == 0) {
-// 		// 		$('.article-slider-prev').hide();
-// 		// 	} else {
-// 		// 		$('.article-slider-prev').show();
-// 		// 	}
-// 		// },
-// 	},
-// });
-
 </script>
-
-<style>
-/*.tab-content-slider {*/
-/*	width: 100%;*/
-/*}*/
-.swiper {
-	width: 600px;
-	height: 300px;
-}
-</style>

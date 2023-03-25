@@ -26,10 +26,5 @@ export default {
 		Header,
 		MenuRight,
 	},
-  // data() {
-  //   return {
-  //     // user: 'Василий Пупкин'
-  //   }
-  // }
 }
 </script>
